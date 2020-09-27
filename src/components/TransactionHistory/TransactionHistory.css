@@ -1,0 +1,63 @@
+.transaction-history {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  max-width: 1200px;
+  padding: 15px;
+}
+
+.transaction-history center > h2 {
+  color: white;
+}
+
+.transactions {
+  display: flex;
+  flex-direction: column;
+  height: 28vh;
+  overflow: scroll;
+  font-weight: 400;
+  font-size: 1rem;
+}
+.transactions::-webkit-scrollbar {
+  display: none;
+}
+
+.income-transaction-history {
+  display: flex;
+  flex-direction: row;
+  margin: 3px;
+  height: 6vh;
+  padding: 3px;
+}
+.single-income-history {
+  background-color: limegreen;
+  display: flex;
+  flex: 0.8;
+  padding: 3px 5px;
+  justify-content: space-between;
+  color: white;
+  border-radius: 5px;
+}
+.expense-transaction-history {
+  display: flex;
+  flex-direction: row;
+  margin: 3px;
+  height: 6vh;
+  padding: 3px;
+}
+.single-expense-history {
+  background-color: lightcoral;
+  display: flex;
+  flex: 0.8;
+  padding: 3px 5px;
+  justify-content: space-between;
+  color: white;
+  border-radius: 5px;
+}
+.delete-icon {
+  display: flex;
+  flex: 0.2;
+  padding: 5px;
+  justify-content: space-around;
+}

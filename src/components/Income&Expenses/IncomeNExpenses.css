@@ -1,0 +1,26 @@
+.income-expenses {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.income {
+  color: limegreen;
+}
+
+.expense {
+  color: lightcoral;
+}
+.income > h2 {
+  font-weight: 500;
+  color: limegreen;
+}
+.expense > h2 {
+  font-weight: 500;
+  color: lightcoral;
+}
+.income,
+.expense > p {
+  font-weight: bold;
+}

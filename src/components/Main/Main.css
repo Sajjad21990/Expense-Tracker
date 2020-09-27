@@ -1,0 +1,31 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 92vh;
+  margin: 30px 20px;
+  background-color: rgb(45, 44, 45);
+  align-items: center;
+  border-radius: 15px;
+}
+.title > h1 {
+  margin-top: 5vh;
+  color: #dfe0e4;
+  font-weight: 400;
+  /* font-family: "Warnes", cursive; */
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6,
+    0 0 25px #0073e6, 0 0 30px #0073e6, 0 0 35px #0073e6;
+}
+
+.balanceContainer {
+  text-align: center;
+  color: #dfe0e4;
+}
+.balanceContainer > h1 {
+  font-weight: 400;
+  color: #dfe0e4;
+}
+.balanceContainer > h3 {
+  font-weight: 700;
+  color: #dfe0e4;
+}
