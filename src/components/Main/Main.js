@@ -8,6 +8,8 @@ import Title from "../Title";
 import firebase from "firebase";
 
 const Main = (props) => {
+  const { handleNameChange } = props;
+
   const [totalIncome, setTotalIncome] = useState(0);
   const [totalExpense, setTotalExpense] = useState(0);
   const [totalBalance, setTotalBalance] = useState(0);
@@ -16,6 +18,7 @@ const Main = (props) => {
   useEffect(() => {
     const user = firebase.auth().currentUser;
     if (user) {
+      handleNameChange(user.displayName);
       firebase
         .firestore()
         .collection("users")
@@ -143,7 +146,7 @@ const Main = (props) => {
         updateExpense={updateExpense}
       />
       <TransactionHistory data={transactionData} handleDelete={handleDelete} />
-      <div className="pending-transaction">
+      {/* <div className="pending-transaction">
         <Button
           ghost
           style={{
@@ -155,7 +158,7 @@ const Main = (props) => {
         >
           Pending Transactions
         </Button>
-      </div>
+      </div> */}
     </div>
   );
 };

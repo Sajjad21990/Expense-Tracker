@@ -20,8 +20,7 @@ const Login = (props) => {
     if (authType === "email") {
       firebase
         .auth()
-        // .signInWithEmailAndPassword(data.email, data.pswd)
-        .signInWithEmailAndPassword("test@test.com", "123456")
+        .signInWithEmailAndPassword(data.email, data.pswd)
         .then((response) => {
           props.history.push("/home");
         })
