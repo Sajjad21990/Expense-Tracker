@@ -11,6 +11,7 @@
 
 .signup-form-container {
   height: 53vh;
+  max-height: 63vh;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

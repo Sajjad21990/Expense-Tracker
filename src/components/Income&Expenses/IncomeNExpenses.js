@@ -6,11 +6,11 @@ const IncomeNExpenses = (props) => {
   const [incomeModal, setIncomeModal] = useState(false);
   const [loading, setLoading] = useState(false);
   const [expenseModal, setExpenseModal] = useState(false);
-  const [incomeAmount, setIncomeAmount] = useState(0);
+  const [incomeAmount, setIncomeAmount] = useState(10);
   const [incomeDescription, setIncomeDescription] = useState(
     "some transaction"
   );
-  const [expenseAmount, setExpenseAmount] = useState(0);
+  const [expenseAmount, setExpenseAmount] = useState(10);
   const [expenseDescription, setExpenseDescription] = useState(
     "some transaction"
   );
@@ -89,15 +89,12 @@ const IncomeNExpenses = (props) => {
               <Col span={8}>
                 <label for="add-income">Enter Amount </label>
               </Col>
-              <Col span={5}>
+              <Col span={8}>
                 <InputNumber
                   size="small"
                   id="add-income"
-                  formatter={(value) =>
-                    `₹ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                  }
-                  parser={(value) => value.replace(/\₹\s?|(,*)/g, "")}
                   onChange={(value) => setIncomeAmount(value)}
+                  placeholder="min 10"
                 />
               </Col>
             </Row>
@@ -158,11 +155,8 @@ const IncomeNExpenses = (props) => {
                 <InputNumber
                   size="small"
                   id="add-expense"
-                  formatter={(value) =>
-                    `₹ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-                  }
-                  parser={(value) => value.replace(/\₹\s?|(,*)/g, "")}
                   onChange={(value) => setExpenseAmount(value)}
+                  placeholder="min 10"
                 />
               </Col>
             </Row>

@@ -7,10 +7,10 @@ import Login from "./components/Login/Login";
 
 const App = (props) => {
   const [displayName, setDisplayName] = useState(false);
-  const [name, setName] = useState("");
+  const [name, setName] = useState("Guest");
 
   const handleNameChange = (name) => {
-    setDisplayName(true);
+    setDisplayName(!displayName);
     if (name !== null) {
       setName(name);
     }
@@ -21,7 +21,7 @@ const App = (props) => {
       <div className="app">
         {displayName ? (
           <div className="top-container">
-            <span className="name">Welcome back {name}</span>
+            <span className="name">Welcome Back {name}</span>
           </div>
         ) : null}
       </div>

@@ -11,6 +11,7 @@
 
 .login-form-container {
   height: 43vh;
+  max-height: 53vh;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

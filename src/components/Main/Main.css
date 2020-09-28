@@ -29,3 +29,11 @@
   font-weight: 700;
   color: #dfe0e4;
 }
+
+.signout-btn {
+  position: fixed;
+  top: -5vh;
+  right: -35vw;
+  border-radius: 10px;
+  color: red;
+}

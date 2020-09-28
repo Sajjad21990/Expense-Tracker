@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Title from "../Title";
-import { Input, Button } from "antd";
+import { Input, Button, message } from "antd";
 import {
   MailOutlined,
   EyeTwoTone,
@@ -23,9 +23,11 @@ const Login = (props) => {
         .signInWithEmailAndPassword(data.email, data.pswd)
         .then((response) => {
           props.history.push("/home");
+          message.success("welcome back");
         })
         .catch((error) => {
           console.log(error);
+          message.error(error.code);
         });
     } else {
       auth
@@ -41,20 +43,22 @@ const Login = (props) => {
               totalIncome: 0,
               totalExpense: 0,
               transactionData: [],
-              totalPendingIncome: 0,
-              totalPendingExpense: 0,
-              totalPendingBalance: 0,
-              transactionPendingData: [],
             };
             return db
               .collection("users")
               .doc(res.user.email)
               .set(userObj)
-              .then(() => props.history.push("/home"));
+              .then(() => {
+                props.history.push("/home");
+                message.success("welcome back");
+              });
           }
           props.history.push("/home");
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          console.log(err);
+          message.error(err.code);
+        });
     }
   };
 

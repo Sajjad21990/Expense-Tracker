@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import Title from "../Title";
-import { Input, Select, Button } from "antd";
+import { Input, Button, message } from "antd";
 import {
   UserOutlined,
   MailOutlined,
   EyeTwoTone,
+  LockOutlined,
   EyeInvisibleOutlined,
 } from "@ant-design/icons";
 import { withRouter, Link } from "react-router-dom";
@@ -35,11 +36,15 @@ const Signup = (props) => {
           db.collection("users")
             .doc(response.user.email)
             .set(userObj)
-            .then(() => props.history.push("/home"))
+            .then(() => {
+              props.history.push("/home");
+              message.success("signup successful");
+            })
             .catch((e) => console.log(e));
         })
         .catch((error) => {
           console.log(error);
+          message.error(error.code);
         });
     } else {
       auth
@@ -60,11 +65,17 @@ const Signup = (props) => {
               .collection("users")
               .doc(res.user.email)
               .set(userObj)
-              .then(() => props.history.push("/home"));
+              .then(() => {
+                props.history.push("/home");
+                message.success("signup successful");
+              });
           }
           props.history.push("/home");
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          console.log(err);
+          message.error(err.code);
+        });
     }
   };
 
@@ -87,6 +98,7 @@ const Signup = (props) => {
         />
         <Input.Password
           size="large"
+          prefix={<LockOutlined />}
           placeholder="Enter password"
           iconRender={(visible) =>
             visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
@@ -95,6 +107,7 @@ const Signup = (props) => {
         />
         <Input.Password
           size="large"
+          prefix={<LockOutlined />}
           placeholder="Confirm password"
           iconRender={(visible) =>
             visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />

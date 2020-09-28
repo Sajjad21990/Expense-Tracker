@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button } from "antd";
+import { Button, message } from "antd";
 import { withRouter } from "react-router";
 import IncomeNExpenses from "../Income&Expenses/IncomeNExpenses";
 import TransactionHistory from "../TransactionHistory/TransactionHistory";
@@ -131,8 +131,35 @@ const Main = (props) => {
     }
   };
 
+  const handleSignout = () => {
+    firebase
+      .auth()
+      .signOut()
+      .then(function () {
+        message.success("Signout successful");
+        handleNameChange();
+        props.history.push("/");
+      })
+      .catch(function (error) {
+        message.error(error.code);
+        props.history.push("/");
+      });
+  };
+
   return (
     <div className="main-container">
+      <Button
+        type="danger"
+        style={{
+          fontWeight: "600",
+          borderRadius: "10px",
+          height: "3.7vh",
+        }}
+        onClick={handleSignout}
+        className="signout-btn"
+      >
+        Signout
+      </Button>
       <Title title="EXPENSE TRACKER" />
       <div className="balanceContainer">
         <h1>Your Balance</h1>
