@@ -1,19 +1,19 @@
 import React, { useState } from "react";
-import { Button, Modal, InputNumber, Input, Row, Col } from "antd";
+import { Button, Modal, InputNumber, Input, Row, Col, Select } from "antd";
 import "./IncomeNExpenses.css";
+
+const { Option } = Select;
 
 const IncomeNExpenses = (props) => {
   const [incomeModal, setIncomeModal] = useState(false);
   const [loading, setLoading] = useState(false);
   const [expenseModal, setExpenseModal] = useState(false);
   const [incomeAmount, setIncomeAmount] = useState(10);
-  const [incomeDescription, setIncomeDescription] = useState(
-    "some transaction"
-  );
+  const [incomeDescription, setIncomeDescription] =
+    useState("some transaction");
   const [expenseAmount, setExpenseAmount] = useState(10);
-  const [expenseDescription, setExpenseDescription] = useState(
-    "some transaction"
-  );
+  const [expenseDescription, setExpenseDescription] =
+    useState("some transaction");
 
   const { totalIncome, totalExpense, updateIncome, updateExpense } = props;
 
@@ -105,13 +105,18 @@ const IncomeNExpenses = (props) => {
                 <label for="income-description">Enter Description </label>
               </Col>
               <Col span={10}>
-                <Input
-                  size="small"
-                  id="income-description"
-                  placeholder=""
-                  allowClear
-                  onChange={(e) => setIncomeDescription(e.target.value)}
-                />
+                <Select
+                  defaultValue="savings"
+                  style={{ width: 120 }}
+                  onChange={(value) => setIncomeDescription(value)}
+                >
+                  <Option value="savings">Savings</Option>
+                  <Option value="business">Business Profits</Option>
+                  <Option value="profit">Other Profits</Option>
+                  <Option value="investment">Investments</Option>
+                  <Option value="crypto">Cryptocurrency</Option>
+                  <Option value="others">others</Option>
+                </Select>
               </Col>
             </Row>
           </Modal>
@@ -167,13 +172,20 @@ const IncomeNExpenses = (props) => {
                 <label for="expense-description">Enter Description </label>
               </Col>
               <Col span={10}>
-                <Input
-                  size="small"
-                  id="expense-description"
-                  placeholder=""
-                  allowClear
-                  onChange={(e) => setExpenseDescription(e.target.value)}
-                />
+                <Select
+                  defaultValue="shopping"
+                  style={{ width: 120 }}
+                  onChange={(value) => setExpenseDescription(value)}
+                >
+                  <Option value="savings">Savings</Option>
+                  <Option value="groceries">Groceries</Option>
+                  <Option value="party">Party</Option>
+                  <Option value="dinner">Food</Option>
+                  <Option value="trips">Trips</Option>
+                  <Option value="investment">Investment</Option>
+                  <Option value="electronics">electronics</Option>
+                  <Option value="others">others</Option>
+                </Select>
               </Col>
             </Row>
           </Modal>
